@@ -1,3 +1,12 @@
+<%-- 
+    Document   : redirect
+    Created on : Mar 20, 2016, 2:49:03 PM
+    Author     : JoseDesk
+--%>
+
+
+
+
 <%--
     Document   : newjsp
     Created on : Feb 29, 2016, 3:16:21 PM
@@ -45,31 +54,13 @@
     </head>
 
     <body>
-        <%@include file="database.jsp" %>
-        <%            
-            //get all the airport locations from the database 
-            Statement airports = conn.createStatement();
 
-            ResultSet view = airports.executeQuery("SELECT Airport_Name FROM CarRental.Airport;");
-
-            /* Date Selector for the date, use after user selected a car from a airport
-                          Pick a date: <br>
-                <input type="text" id="datepicker"  class="selector " name="pickUp"/>
-                    <br>
-
-                    Drop off date: <br> <input type="text" id="departing"  class="selector" name="dropOff"/>
-                    <br>
-                    <br> 
-       
-             */
-
-        %>
 
 
         <div class="leftcustom">
 
 
-            <form action="viewcars.jsp" method="post" style="display: inline-block">
+            <form action="preCart.jsp?carID=<%=carID%>" method="post" style="display: inline-block">
 
                 <fieldset class="fieldset-auto-width">
                     Pick a date: <br>
@@ -82,15 +73,15 @@
 
                     Airport: <br>
                     <select name="airport">
-                        <%  while (view.next()) {%>
-                        <option ><%= view.getString(1)%></option>
-                        <% }%>
+                        
+                        <option ><%=Airport%></option>
+                        
                     </select>
 
                     <br>
                     <br>
 
-                    <input type="submit" class="one_half last, btn btn_red" value="View">
+                    <input type="submit" class="one_half last, btn btn_red" value="Continue">
                 </fieldset>
             </form> 
 
@@ -104,7 +95,7 @@
 
 
         <script>
-
+            //script for the date picker GUI
             /*  jQuery ready function. Specify a function to execute when the DOM is fully loaded.  */
             $(document).ready(
                     /* This is the function that will get executed after the DOM is fully loaded */

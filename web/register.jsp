@@ -2,7 +2,7 @@
 
 <%@ page import ="javax.sql.*" %>
 <%
-
+    //gettting all the parameters to be used in the sql code
     String fname = request.getParameter("fName");
     String lname = request.getParameter("lName");
     String cc = request.getParameter("CC");
@@ -38,7 +38,7 @@
     PreparedStatement pst;
     pst = conn.prepareStatement(
             "INSERT INTO `CarRental`.`Customer`(`FirstName`,`LastName`,`CrediCardNo`,`BillingZipCode`,`BillingCity`,`Billing State`,`BillingStreet`,`EmailAdress`,`PhoneNo`,`Age`,`UserName`,`Password`)VALUES ( ?, ?, ?,?, ?, ?, ?,?, ?, ?, ?,?)");
-
+    //inserting the values into the sql code
     pst.setString(1, fname);
     pst.setString(2, lname);
     pst.setString(3, cc);
@@ -52,9 +52,10 @@
     pst.setString(11, usern);
     pst.setString(12, pass);
     
-
+    // run the sql 
     int i = pst.executeUpdate();
     pst.clearParameters();
+    // redirect the user 
     if (i > 0) {
         response.sendRedirect("index.jsp");
     } else {

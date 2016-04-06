@@ -38,8 +38,9 @@
                 }
 
             }
-            try {
 
+            try {
+                //get the session todo object
                 String todo = request.getParameter("todo");
 
                 if (todo == null) {
@@ -48,9 +49,13 @@
 
                 if (todo.equals("remove")) {
                     String id = request.getParameter("id");  // Only one id for remove case
-                    cart.remove(Integer.parseInt(id));
+                    cart.remove(Integer.parseInt(id));// will remove the id from the list
                 }
 
+                if (todo.equals("clear")) {
+                    cart.clear();
+                    //clears all the items 
+                }
                 if (cart.isEmpty()) {
 
         %>  
@@ -59,7 +64,11 @@
 
         <%                   } else {
 
+            int cartItems = cart.size();
+            // get the cart size
+
             for (cars item : cart.getItems()) {
+            //get the items from the cart while there are some
                 int id = item.getId();
                 String Make = item.getMake();
                 String model = item.getModel();
@@ -67,7 +76,10 @@
                 String Airport = item.getAirport();
                 String Pick = item.getPick();
                 String Drop = item.getDrop();
+                int Days = item.getTotalDays();
+                double RegPrice = item.getPrice();
                 String test = "remove";
+
 
         %>
 
@@ -79,22 +91,26 @@
                 <th>Model</th>
                 <th>Style</th>
                 <th>Airport</th>
-                <th>Image</th>
+
                 <th>Pick Up Date</th>
                 <th>Drop Off Date</th>
+                <th>Total Days</th>
+                <th>Price Per Day</th>
                 <th>Remove</th>
             </tr>
             <tr>
-                <td> <%=Make%>  </td>
+                <td> <%=Make%> </td>
                 <td>  <%=model%>  </td>
                 <td>  <%=style%>   </td>
                 <td>  <%=Airport%>   </td>
-                <td><img src="images/Cars/VJ.jpg" width="200" height="120"></td>
+
                 <td><%=Pick%></td>
                 <td><%=Drop%></td>
+                <td><%=Days%></td>
+                <td><%=RegPrice%></td>
                 <td> 
                     <form  method="get" action="cart.jsp">
-                        <input type="submit" name="Remove" value="Remove">
+                        <input class="one_half last, btn btn_red" type="submit" name="Remove" value="Remove" >
                         <input  type="hidden" name="todo" value='<%=test%>'>
                         <input  type="hidden" name="id" value="<%=id%>">
                     </form>
@@ -103,12 +119,51 @@
 
         </table>
 
+        <br>
+
+
 
 
         <%
-                    }
+            }
+
+
+        %>
+
+        <br><br>
+        <div align="center" >
+            <form  method="get" action="cart.jsp" >
+                <input type="submit" name="Remove" value="Clear Cart" class="one_half last, btn btn_red">
+                <input  type="hidden" name="todo" value="clear">
+
+            </form>  
+        </div>
+
+        <%            if (cartItems == 1 && (session.getAttribute("userid") != null)) {
+
+        %>
+
+        <br><br>
+        <div align="center" >
+            <form   action="ReviewOrder.jsp" >
+                <input class="one_half last, btn btn_red" type="submit" name="Order" value="Proceed With Order" >
+
+
+            </form>  
+        </div>
+        <%                        } else {
+
+
+        %>
+
+        <div align="center">
+            <input class="btn back_btn" type="button"  value="Login to Proceed" >
+        </div>
+
+        <%            }
 
                 }
+
             } catch (Exception ex) {
                 out.println("");
 

@@ -51,7 +51,6 @@
 
             Statement st = conn.createStatement();
 
-            
             String id = session.getAttribute("userid").toString();
 
             ResultSet rs = st.executeQuery("select * from Customer where UserName='" + id + "'");
@@ -65,7 +64,12 @@
 
         <!-- Register Form -->
         <div class="updateUserInfo" align="center">
-
+            
+            <div class="one_half"><a href="OrderHistory.jsp" id="login_form" class="btn">View Order History</a></div>
+            
+            Or Update Your Information 
+            <br><br>
+            
             <form action="updateInfo.jsp" method="post">
                 First Name:<input type="text" name="fName"  value=" <%= rs.getString(2)%> " /><br> 
                 Last Name:<input type="text" name="lName" value=" <%= rs.getString(3)%> "  /><br> 
@@ -91,11 +95,11 @@
                 <div >
                     <div class="one_half"><a href="index.jsp" id="login_form" class="btn">Back</a></div>
                     <input type="submit" class="action_btns ,one_half last, btn btn_red " value="Update Info" >
-                    <div class="one_half"><a href="OrderHistory.jsp" id="login_form" class="btn">Order History</a></div>
+                    <div class="one_half"><a href="OrderHistory.jsp" id="login_form" class="btn">View Order History</a></div>
 
                 </div>
             </form>
-                
+
         </div>
         <BR>
         <%

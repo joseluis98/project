@@ -20,6 +20,7 @@
               <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
             <![endif]-->
     </head>
+
     <body>
 
 
@@ -29,17 +30,18 @@
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-                    <a class="navbar-brand" href="index.jsp  ">  Rental Maxx    <img src="images/Rental Maxx.png" alt="Thumbnail Image 1"  height="100" width="200""> </a></div>
+                    <a class="navbar-brand" href="index.jsp#carousel2">  Rental Maxx    <img src="images/Rental Maxx.png" alt="Thumbnail Image 1"  height="100" width="200""> </a></div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="navbar-form">
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="Boook.jsp">Book <span class="sr-only">(current)</span></a> </li>
-                        <li><a href="Cars.jsp">Cars</a> </li>
+                        
                         <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">More Information <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="map.jsp">See Map</a> </li>
-                                
+
+
 
                                 <li role="separator" class="divider"></li>
                                 <li><a href="About US.jsp">About Us</a> </li>
@@ -53,164 +55,182 @@
                         <button type="submit" class="btn btn-default">Submit</button>
                     </form>
 
-
                     <ul class="nav navbar-nav navbar-right hidden-sm">
-                        <li class="active"><a href="index.jsp">   <%
-
+                        <%
+                            //if there is not session atrrubute then there is no one logged in
                             if ((session.getAttribute("userid") == null) || (session.getAttribute("userid") == "")) {
-                                %>You are not logged in</br>
+                        %>
+                        <li class="active"><a href="index.jsp"> You are not logged in</br>
 
-                                <% } else {
+                                <% } else if (((session.getAttribute("userid") == "Invaild Login Try Again"))) {
                                 %>
-                                Welcome <%=session.getAttribute("userid")%>
-                                <a href="logout.jsp">Log out</a>
-
-                                <%
-                                    }
-                                %> <span class="sr-only">(current)</span></a> </li>
-                        <li class="active"><a href="cart.jsp">Cart <span class="sr-only">(current)</span></a> </li>
-                        <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">Account <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a id="modal_trigger" href="#modal"  class="btn">Log In/ Register</a> </li>
+                                <li class="active"><a href="index.jsp"><%=session.getAttribute("userid")%></br>
+                                        <%
+                                        } else {
+                                        %>
 
 
+                                        <li class="active"><a href="account.jsp"> 
 
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-                <!-- /.navbar-collapse --> 
-            </div>
-            <!-- /.container-fluid --> 
-        </nav>
+                                                Welcome <%=session.getAttribute("userid")%>
+                                                <br> View Account
+                                                <a href="logout.jsp">Log out</a>
 
+                                                <%
+                                                    }
+                                                %> <span class="sr-only">(current)</span></a> </li>
 
-
-        <div class="container">
-
-
-            <div id="modal" class="popupContainer" style="display:none;">
-                <header class="popupHeader">
-                    <span class="header_title">Login</span>
-                    <span class="modal_close"><i class="fa fa-times"></i></span>
-                </header>
-
-                <section class="popupBody">
-                    <!-- Social Login -->
-                    <div class="MainPopUp">
-
-                        <div class="centeredText">
-                            <span>RENTAL MAXX</span>
-                        </div>
-
-                        <div class="action_btns">
-                            <div class="one_half"><a href="#" id="login_form" class="btn">Login</a></div>
-                            <div class="one_half last"><a href="#" id="register_form" class="btn">Sign up</a></div>
-                        </div>
-                    </div>
-
-                    <!-- Username & Password Login form -->
-                    <div class="user_login">
-                        <form action="login.jsp" method="post">
-                            User Name:<input type="text" name="usern" />
-                            Password :<input type="password" name="password" />
+                                        <li class="active"><a href="cart.jsp">Cart <span class="sr-only">(current)</span></a> </li>
+                                        <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">Account <span class="caret"></span></a>
+                                            <ul class="dropdown-menu">
+                                                <li><a id="modal_trigger" href="#modal"  class="btn">Log In/ Register</a> </li>
 
 
 
-                            <div class="action_btns">
-                                <div class="one_half"><a href="#" class="btn back_btn"><i class="fa fa-angle-double-left"></i> Back</a></div>
-                                <input type="submit" class="one_half last, btn btn_red" value="Login">
-                            </div>
-                        </form>
-
-
-                    </div>
-
-                    <!-- Register Form -->
-                    <div class="user_register">
-
-                        <form action="register.jsp" method="post">
-                            First Name: <input type="text" name="fName"  size="50" />
-                            Last Name :<input type="text" name="lName"  size="-5" />
-                            Credit Card : <input type="text" name="CC" size="-5" />
-                            Street: <input type="text" name="street" size="-5" />
-                            City:    <input type="text" name="city" size="-5"  />
-                            State:  <input type="text" name="state" size="-5" />
-                            Zip:  <input type="text" name="zip" size="-5" />
-                            Email : <input  type="email" name="mail" size="-5"  />
-                            Phone : <input type="text" name="phone" size="-5" />
-                            Age : <input type="text" name="age" size="-5" />
-                            User Name:<input type="text" name="usern" size="-5" />
-                            Password :<input type="password" name="password" size="-5" />
+                                            </ul>
+                                        </li>
+                                        </ul>
+                                        </div>
+                                        <!-- /.navbar-collapse --> 
+                                        </div>
+                                        <!-- /.container-fluid --> 
+                                        </nav>
 
 
 
+                                        <div class="container">
+
+
+                                            <div id="modal" class="popupContainer" style="display:none;">
+                                                <header class="popupHeader">
+                                                    <span class="header_title">Login</span>
+                                                    <span class="modal_close"><i class="fa fa-times"></i></span>
+                                                </header>
+
+                                                <section class="popupBody">
+                                                    <!-- Social Login -->
+                                                    <div class="MainPopUp">
+
+                                                        <div class="centeredText">
+                                                            <span>RENTAL MAXX</span>
+                                                        </div>
+
+                                                        <div class="action_btns">
+                                                            <div class="one_half"><a href="#" id="login_form" class="btn">Login</a></div>
+                                                            <div class="one_half last"><a href="#" id="register_form" class="btn">Sign up</a></div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- Username & Password Login form -->
+                                                    <div class="user_login">
+                                                        <form action="login.jsp" method="post">
+                                                            User Name:<input type="text" name="usern" required/>
+                                                            Password :<input type="password" name="password" required/>
 
 
 
+                                                            <div class="action_btns">
+                                                                <div class="one_half"><a href="#" class="btn back_btn"><i class="fa fa-angle-double-left"></i> Back</a></div>
+                                                                <input type="submit" class="one_half last, btn btn_red" value="Login">
+                                                            </div>
+                                                        </form>
 
 
+                                                    </div>
 
-                            <div class="action_btns" >
-                                <div class="one_half"><a href="#" class="btn back_btn"><i class="fa fa-angle-double-left"></i> Back</a></div>
-                                <input type="submit" class="action_btns ,one_half last, btn btn_red " value="Register" >
+                                                    <!-- Register Form -->
+                                                    <div class="user_register">
 
+                                                        <form action="register.jsp" method="post">
+                                                            First Name: <input type="text" name="fName" required/>
+                                                            Last Name :<input type="text" name="lName" required/>
+                                                            Credit Card : <input type="text" name="CC" required/>
 
-                            </div>
-                        </form>
-                    </div>
-                </section>
-            </div>
-        </div>
+                                                            Street: <input type="text" name="street" required/>
+                                                            City:    <input type="text" name="city" required/>
+                                                            State:  <input type="text" name="state" required/>
+                                                            Zip:  <input type="text" name="zip" required/>
 
-        <script type="text/javascript">
-            $("#modal_trigger").leanModal({top: 10, overlay: 0.6, closeButton: ".modal_close"});
-
-            $(function () {
-                // Calling Login Form
-                $("#login_form").click(function () {
-                    $(".MainPopUp").hide();
-                    $(".user_login").show();
-                    return false;
-                });
-
-                // Calling Register Form
-                $("#register_form").click(function () {
-                    $(".MainPopUp").hide();
-                    $(".user_register").show();
-                    $(".header_title").text('Register');
-                    return false;
-                });
-
-                // Going back to the SignUp/ Register Page
-                $(".back_btn").click(function () {
-                    $(".user_login").hide();
-                    $(".user_register").hide();
-                    $(".MainPopUp").show();
-                    $(".header_title").text('Login');
-                    return false;
-                });
-
-            })
-        </script>
+                                                            Email : <input  type="email" name="mail" required/>
+                                                            Phone : <input type="text" name="phone" required/>
+                                                            Age : <input type="text" name="age" required/>
+                                                            User Name:<input type="text" name="usern" required/>
+                                                            Password :<input type="password" name="password" required/>
 
 
 
 
 
 
-        <nav>&nbsp;</nav>
-        <nav>&nbsp;</nav>
-        <nav>&nbsp;</nav>
+
+
+
+                                                            <div class="action_btns"  >
+                                                                <div class="one_half"><a href="#" class="btn back_btn"><i class="fa fa-angle-double-left"></i> Back</a></div>
+                                                                <input type="submit" class="action_btns ,one_half last, btn btn_red " value="Register" >
+
+
+                                                            </div>
+
+                                                        </form>
+                                                    </div>
+                                                </section>
+                                            </div>
+                                        </div>
+
+                                        <script type="text/javascript">
+                                            $("#modal_trigger").leanModal({top: 10, overlay: 0.6, closeButton: ".modal_close"});
+
+                                            $(function () {
+                                                // Calling Login Form
+                                                $("#login_form").click(function () {
+                                                    $(".MainPopUp").hide();
+                                                    $(".user_login").show();
+                                                    return false;
+                                                });
+
+                                                // Calling Register Form
+                                                $("#register_form").click(function () {
+                                                    $(".MainPopUp").hide();
+                                                    $(".user_register").show();
+                                                    $(".header_title").text('Register');
+                                                    return false;
+                                                });
+
+                                                // Going back to the SignUp/ Register Page
+                                                $(".back_btn").click(function () {
+                                                    $(".user_login").hide();
+                                                    $(".user_register").hide();
+                                                    $(".MainPopUp").show();
+                                                    $(".header_title").text('Login');
+                                                    return false;
+                                                });
+
+                                            })
+                                        </script>
 
 
 
 
 
-        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
-        <script src="js/jquery-1.11.3.min.js"></script>
 
-        <!-- Include all compiled plugins (below), or include individual files as needed --> 
-        <script src="js/bootstrap.js"></script>
-    </body>
-</html>
+                                        <nav>&nbsp;</nav>
+                                        <nav>&nbsp;</nav>
+                                        <nav>&nbsp;</nav>
+
+                                        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+                                        <script src="js/jquery-1.11.3.min.js"></script> 
+                                        <!-- Include all compiled plugins (below), or include individual files as needed --> 
+                                        <script src="js/bootstrap.js"></script>
+
+
+
+
+
+                                        </body>
+
+
+
+
+
+                                        </html>

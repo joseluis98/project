@@ -7,6 +7,7 @@
 <%@ page import ="java.sql.*" %>
 <%@ page import ="javax.sql.*" %>
 <%
+    //get the session parameters and use them for sql code 
     String id = request.getParameter("usern");
     String pwd = request.getParameter("password");
  
@@ -26,16 +27,19 @@
     Statement st = conn.createStatement();
     ResultSet rs = st.executeQuery("select * from Customer where UserName='" + id + "'");
     if (rs.next()) {
+        // checks of the user name and the password match and if so redirect the user 
         if (rs.getString(13).equals(pwd)) {
             session.setAttribute("userid",  id);
             
             response.sendRedirect("index.jsp");
         } else {
-            session.setAttribute("userid", "Invaild Login Try Again");
+            
             response.sendRedirect("index.jsp");
         }
     }
     else{
+        //setting the session attributes
+        session.setAttribute("userid", "Invaild Login Try Again");
         response.sendRedirect("index.jsp");
     }
 %>

@@ -23,16 +23,18 @@
             <link type="text/css" rel="stylesheet" href="css/style.css" />
         </head>
         <body>
+
         <%@include file="database.jsp" %>
         <%@include file="NavBar.jsp" %>
 
-        <%            
+        <%            //getting the parameters
             String Airport = request.getParameter("airport");
-            String PickDate = request.getParameter("pickUp");
-            session.setAttribute("PickUp", PickDate);
-            String DropDate = request.getParameter("dropOff");
-            session.setAttribute("dropOff", DropDate);
 
+            String PickDate = request.getParameter("pickUp");
+            String DropDate = request.getParameter("dropOff");
+
+            session.setAttribute("dropOff", DropDate);
+            session.setAttribute("PickUp", PickDate);
         %>
 
 
@@ -44,7 +46,7 @@
 
         <script type="text/javascript">
 
-
+            //not used
             function funcCaller() {
                 cart.add(1, " maker", " maker", " maker", " maker", " maker");
 
@@ -57,96 +59,602 @@
         <div class="container">
             <div class="row text-center">
                 <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
-                    <div class="thumbnail"> <img src="images/Cars/FordFiesta.jpg" alt="Thumbnail Image 1" class="img-responsive">
+                    <div class="thumbnail"> <img src="images/Cars/FordFiesta.jpg" alt="Thumbnail Image 1" class="img-responsive" height="380" width="310">
                         <div class="caption">
                             <h3>Ford Fiesta</h3>
-                            <p>Compact and reliable at a &nbsp;Low Price</p>
-                            <p>$25 Per Day </p>
+                            <p>Compact and reliable at a &nbsp;Low Price-Budget</p>
+                            <p>$11 Per Day- Miami International Airport </p>
 
-                            <p><a href="preCart.jsp?carID=17" class="btn btn-primary" role="button" ><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Add to Cart</a></p>
-
-
+                            <p><a href="preCart.jsp?carID=17" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Add to Cart</a></p>
                         </div>
                     </div>
-
                 </div>
-                <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
-                    <div class="thumbnail"> <img src="images/Cars/TC.jpg" alt="Toyota" class="img-responsive">
+
+
+
+
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                    <div class="thumbnail"> <img src="images/Cars/Lamborghini.jpg" alt="Thumbnail Image 1" class="img-responsive">
                         <div class="caption">
-                            <h3>Toyota Corolla</h3>
-                            <p>Standard Features For a great Price </p>
-                            <p>$56 Per Day </p>
-                            <p><a href="preCart.jsp?carID=4" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Add to Cart</a> </p>
-
+                            <h3>Lamborghini Veneno</h3>
+                            <p>Head turner-Hertz</p>
+                            <p>$200 Per Day-Miami International Airport </p>
+                            <p><a href="preCart.jsp?carID=30" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Add to Cart</a> </p>
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
-                    <div class="thumbnail"> <img src="images/Cars/KR.jpg" alt="Thumbnail Image 1" class="img-responsive">
-                        <div class="caption">
-                            <h3>Kia Rio</h3>
-                            <p>Small and Great MPG</p>
-                            <p>$16 Per Day </p>
-                            <p><a href="cart.jsp" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Add to Cart</a> </p>
-                        </div>
-                    </div>
-                </div>
-
                 <div class="row text-center hidden-xs">
                     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
                         <div class="thumbnail"> <img src="images/Cars/VJ.jpg" alt="Thumbnail Image 1" class="img-responsive">
                             <div class="caption">
                                 <h3>VW Jetta</h3>
-                                <p>Standard Features For a great Price<br>
+                                <p>Standard Features For a great Price
                                 </p>
-                                <p>$27 Per Day </p>
-                                <p>&nbsp;</p>
-                                <p><a href="cart.jsp" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Add to Cart</a> </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                        <div class="thumbnail"> <img src="images/Cars/R4.jpg" alt="Thumbnail Image 1" class="img-responsive">
-                            <div class="caption">
-                                <h3>Toyota RAV4</h3>
-                                <p>Great SUV at a great price</p>
-                                <p>$58 Per Day </p>
-                                <p><a href="cart.jsp" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Add to Cart</a> </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                        <div class="thumbnail"> <img src="images/Cars/CT.jpg" alt="Thumbnail Image 1" class="img-responsive" height="380" width="310">
-                            <div class="caption">
-                                <h3>Chevy Tahoe </h3>
-                                <p>Best In Class SUV </p>
-                                <p>$73 Per Day </p>
-                                <p><a href="#" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Add to Cart</a> </p>
+                                <p>$21 Per Day- Miami International Airport</p>
+                                <p><a href="preCart.jsp?carID=5" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Add to Cart</a> </p>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
+
+        </div>
+
+
+
+
+        <%        } else if (Airport.equals("Hartsfield-Jackson Atlant International Airpo")) {
+
+        %>
+
+        <h2 class="text-center"><%=Airport%>  </h2>
+        <div class="container">
+            <div class="row text-center">
+
+                <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
+                    <div class="thumbnail"> <img src="images/Cars/TC.jpg" alt="Toyota" class="img-responsive" height="380" width="310">
+                        <div class="caption">
+                            <h3>Toyota Corolla</h3>
+                            <p>Standard Features For a great Price -Hertz </p>
+                            <p>$15 Per Day-Atlanta International Airport </p>
+                            <p><a href="preCart.jsp?carID=2" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Add to Cart</a> </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
+                    <div class="thumbnail"> <img src="images/Cars/KR.jpg" alt="Thumbnail Image 1" class="img-responsive" height="380" width="310">
+                        <div class="caption">
+                            <h3>Kia Rio</h3>
+                            <p>Small and Great MPG-Alamo</p>
+
+                            <p>$11 Per Day-Atlanta International Airport</p>
+                            <p><a href="preCart.jsp?carID=7" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Add to Cart</a> </p>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                    <div class="thumbnail"> <img src="images/Cars/CT.jpg" alt="Thumbnail Image 1" class="img-responsive" height="380" width="310">
+                        <div class="caption">
+                            <h3>Chevy Tahoe </h3>
+                            <p>Best In Class SUV -Hertz</p>
+                            <p>$70 Per Day-Atlanta International Airport </p>
+                            <p><a href="preCart.jsp?carID=25" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Add to Cart</a> </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+        <%} else if (Airport.equals("Nashville International Airport")) {
+
+        %>
+
+        <h2 class="text-center"><%=Airport%>  </h2>
+        <div class="container">
+            <div class="row text-center">
+
+                <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
+                    <div class="thumbnail"> <img src="images/Cars/Buick Lacrosse.jpg" alt="Toyota" class="img-responsive" height="380" width="310">
+                        <div class="caption">
+                            <h3>Buick Lacrosse </h3>
+                            <p>Standard Features For a great Price -Hertz </p>
+                            <p>$38 Per Day-Nashville International Airport </p>
+                            <p><a href="preCart.jsp?carID=24" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Add to Cart</a> </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
+                    <div class="thumbnail"> <img src="images/Cars/Chevy Equinox.jpg" alt="Thumbnail Image 1"  height="380" width="390">
+                        <div class="caption">
+                            <h3>Chevy Equinox</h3>
+                            <p>Great SUV</p>
+
+                            <p>$11 Per Day-Nashville International Airport</p>
+                            <p><a href="preCart.jsp?carID=23" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Add to Cart</a> </p>
+                        </div>
+                    </div>
+                </div>
+
+
+
 
             </div>
-            <hr>
-            <hr>
-            <div class="container"> </div>
-            <hr>
+
+        </div>
+
+
+        <%
+
+        } else if (Airport.equals("Logan International Airport")) {
+
+        %>
+
+        <div class="container">
+            <div class="row text-center">
+
+                <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
+                    <div class="thumbnail"> <img src="images/Cars/Chevy Impala.jpg" alt="CI"  >
+                        <div class="caption">
+                            <h3>Chevy Impala </h3>
+                            <p>Standard Features For a great Price -Hertz </p>
+                            <p>$38 Per Day-Logan International Airport </p>
+                            <p><a href="preCart.jsp?carID=24" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Add to Cart</a> </p>
+                        </div>
+                    </div>
+                </div>
 
 
 
-            <%        } else {
-
-            %>
-
-            <h2 class="text-center">No Cars</h2>
-
-            <%            }
-
-            %>
 
 
+            </div>
 
-            <%@include file="footer.jsp" %>
+        </div>
+
+
+        <%} else if (Airport.equals("Charlotte Douglas International Airport")) {
+
+        %>
+
+        <div class="container">
+            <div class="row text-center">
+
+                <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
+                    <div class="thumbnail"> <img src="images/Cars/Chevy Impala.jpg" alt="CI"  >
+                        <div class="caption">
+                            <h3>Chevy Impala </h3>
+                            <p>Standard Features For a great Price -Hertz </p>
+                            <p>$38 Per Day-Logan International Airport </p>
+                            <p><a href="preCart.jsp?carID=24" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Add to Cart</a> </p>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+            </div>
+
+        </div>
+        <%} else if (Airport.equals("Denver International Airport")) {
+
+        %>
+
+        <div class="container">
+            <div class="row text-center">
+
+                <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
+                    <div class="thumbnail"> <img src="images/Cars/Chevy Impala.jpg" alt="CI"  >
+                        <div class="caption">
+                            <h3>Chevy Impala </h3>
+                            <p>Standard Features For a great Price -Hertz </p>
+                            <p>$38 Per Day-Logan International Airport </p>
+                            <p><a href="preCart.jsp?carID=24" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Add to Cart</a> </p>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+            </div>
+
+        </div>
+        <%} else if (Airport.equals("Dallas/Fort Worth International Airport")) {
+
+        %>
+
+        <div class="container">
+            <div class="row text-center">
+
+                <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
+                    <div class="thumbnail"> <img src="images/Cars/Chevy Impala.jpg" alt="CI"  >
+                        <div class="caption">
+                            <h3>Chevy Impala </h3>
+                            <p>Standard Features For a great Price -Hertz </p>
+                            <p>$38 Per Day-Logan International Airport </p>
+                            <p><a href="preCart.jsp?carID=24" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Add to Cart</a> </p>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+            </div>
+
+        </div>
+        <%} else if (Airport.equals("Detroit Metropolitan Airport")) {
+
+        %>
+
+        <div class="container">
+            <div class="row text-center">
+
+                <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
+                    <div class="thumbnail"> <img src="images/Cars/Chevy Impala.jpg" alt="CI"  >
+                        <div class="caption">
+                            <h3>Chevy Impala </h3>
+                            <p>Standard Features For a great Price -Hertz </p>
+                            <p>$38 Per Day-Logan International Airport </p>
+                            <p><a href="preCart.jsp?carID=24" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Add to Cart</a> </p>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+            </div>
+
+        </div>
+        <%} else if (Airport.equals("Newark Liberty International Airport")) {
+
+        %>
+
+        <div class="container">
+            <div class="row text-center">
+
+                <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
+                    <div class="thumbnail"> <img src="images/Cars/Chevy Impala.jpg" alt="CI"  >
+                        <div class="caption">
+                            <h3>Chevy Impala </h3>
+                            <p>Standard Features For a great Price -Hertz </p>
+                            <p>$38 Per Day-Logan International Airport </p>
+                            <p><a href="preCart.jsp?carID=24" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Add to Cart</a> </p>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+            </div>
+
+        </div>
+        <%} else if (Airport.equals("Fort Lauderdale-Hollywood International Airpo")) {
+
+        %>
+
+        <div class="container">
+            <div class="row text-center">
+
+                <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
+                    <div class="thumbnail"> <img src="images/Cars/Chevy Impala.jpg" alt="CI"  >
+                        <div class="caption">
+                            <h3>Chevy Impala </h3>
+                            <p>Standard Features For a great Price -Hertz </p>
+                            <p>$38 Per Day-Logan International Airport </p>
+                            <p><a href="preCart.jsp?carID=24" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Add to Cart</a> </p>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+            </div>
+
+        </div>
+        <%} else if (Airport.equals("George Bush International Airport")) {
+
+        %>
+
+        <div class="container">
+            <div class="row text-center">
+
+                <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
+                    <div class="thumbnail"> <img src="images/Cars/Chevy Impala.jpg" alt="CI"  >
+                        <div class="caption">
+                            <h3>Chevy Impala </h3>
+                            <p>Standard Features For a great Price -Hertz </p>
+                            <p>$38 Per Day-Logan International Airport </p>
+                            <p><a href="preCart.jsp?carID=24" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Add to Cart</a> </p>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+            </div>
+
+        </div>
+        <%} else if (Airport.equals("John F. Kennedy International Airport")) {
+
+        %>
+
+        <div class="container">
+            <div class="row text-center">
+
+                <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
+                    <div class="thumbnail"> <img src="images/Cars/Chevy Impala.jpg" alt="CI"  >
+                        <div class="caption">
+                            <h3>Chevy Impala </h3>
+                            <p>Standard Features For a great Price -Hertz </p>
+                            <p>$38 Per Day-Logan International Airport </p>
+                            <p><a href="preCart.jsp?carID=24" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Add to Cart</a> </p>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+            </div>
+
+        </div>
+        <%} else if (Airport.equals("McCarran International Airport")) {
+
+        %>
+
+        <div class="container">
+            <div class="row text-center">
+
+                <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
+                    <div class="thumbnail"> <img src="images/Cars/Chevy Impala.jpg" alt="CI"  >
+                        <div class="caption">
+                            <h3>Chevy Impala </h3>
+                            <p>Standard Features For a great Price -Hertz </p>
+                            <p>$38 Per Day-Logan International Airport </p>
+                            <p><a href="preCart.jsp?carID=24" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Add to Cart</a> </p>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+            </div>
+
+        </div>
+        <%} else if (Airport.equals("Los Angeles International Airport")) {
+
+        %>
+
+        <div class="container">
+            <div class="row text-center">
+
+                <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
+                    <div class="thumbnail"> <img src="images/Cars/Chevy Impala.jpg" alt="CI"  >
+                        <div class="caption">
+                            <h3>Chevy Impala </h3>
+                            <p>Standard Features For a great Price -Hertz </p>
+                            <p>$38 Per Day-Logan International Airport </p>
+                            <p><a href="preCart.jsp?carID=24" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Add to Cart</a> </p>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+            </div>
+
+        </div>
+        <%} else if (Airport.equals("LaGuardia Airport")) {
+
+        %>
+
+        <div class="container">
+            <div class="row text-center">
+
+                <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
+                    <div class="thumbnail"> <img src="images/Cars/Chevy Impala.jpg" alt="CI"  >
+                        <div class="caption">
+                            <h3>Chevy Impala </h3>
+                            <p>Standard Features For a great Price -Hertz </p>
+                            <p>$38 Per Day-Logan International Airport </p>
+                            <p><a href="preCart.jsp?carID=24" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Add to Cart</a> </p>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+            </div>
+
+        </div>
+        <%} else if (Airport.equals("Orlando International Airport")) {
+
+        %>
+
+        <div class="container">
+            <div class="row text-center">
+
+                <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
+                    <div class="thumbnail"> <img src="images/Cars/Chevy Impala.jpg" alt="CI"  >
+                        <div class="caption">
+                            <h3>Chevy Impala </h3>
+                            <p>Standard Features For a great Price -Hertz </p>
+                            <p>$38 Per Day-Logan International Airport </p>
+                            <p><a href="preCart.jsp?carID=24" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Add to Cart</a> </p>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+            </div>
+
+        </div>
+        <%} else if (Airport.equals("Minneapolis–Saint Paul International Airport ")) {
+
+        %>
+
+        <div class="container">
+            <div class="row text-center">
+
+                <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
+                    <div class="thumbnail"> <img src="images/Cars/Chevy Impala.jpg" alt="CI"  >
+                        <div class="caption">
+                            <h3>Chevy Impala </h3>
+                            <p>Standard Features For a great Price -Hertz </p>
+                            <p>$38 Per Day-Logan International Airport </p>
+                            <p><a href="preCart.jsp?carID=24" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Add to Cart</a> </p>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+            </div>
+
+        </div>
+        <%} else if (Airport.equals("O'Hare International Airport")) {
+
+        %>
+
+        <div class="container">
+            <div class="row text-center">
+
+                <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
+                    <div class="thumbnail"> <img src="images/Cars/Chevy Impala.jpg" alt="CI"  >
+                        <div class="caption">
+                            <h3>Chevy Impala </h3>
+                            <p>Standard Features For a great Price -Hertz </p>
+                            <p>$38 Per Day-Logan International Airport </p>
+                            <p><a href="preCart.jsp?carID=24" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Add to Cart</a> </p>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+            </div>
+
+        </div>
+        <%} else if (Airport.equals("Philadelphia International Airport")) {
+
+        %>
+
+        <div class="container">
+            <div class="row text-center">
+
+                <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
+                    <div class="thumbnail"> <img src="images/Cars/Chevy Impala.jpg" alt="CI"  >
+                        <div class="caption">
+                            <h3>Chevy Impala </h3>
+                            <p>Standard Features For a great Price -Hertz </p>
+                            <p>$38 Per Day-Logan International Airport </p>
+                            <p><a href="preCart.jsp?carID=24" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Add to Cart</a> </p>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+            </div>
+
+        </div>
+        <%} else if (Airport.equals("Phoenix Sky Harbor International Airport	")) {
+
+        %>
+
+        <div class="container">
+            <div class="row text-center">
+
+                <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
+                    <div class="thumbnail"> <img src="images/Cars/Chevy Impala.jpg" alt="CI"  >
+                        <div class="caption">
+                            <h3>Chevy Impala </h3>
+                            <p>Standard Features For a great Price -Hertz </p>
+                            <p>$38 Per Day-Logan International Airport </p>
+                            <p><a href="preCart.jsp?carID=24" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Add to Cart</a> </p>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+            </div>
+
+        </div>
+        <%} else if (Airport.equals("Seattle–Tacoma International Airport")) {
+
+        %>
+
+        <div class="container">
+            <div class="row text-center">
+
+                <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
+                    <div class="thumbnail"> <img src="images/Cars/Chevy Impala.jpg" alt="CI"  >
+                        <div class="caption">
+                            <h3>Chevy Impala </h3>
+                            <p>Standard Features For a great Price -Hertz </p>
+                            <p>$38 Per Day-Logan International Airport </p>
+                            <p><a href="preCart.jsp?carID=24" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Add to Cart</a> </p>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+            </div>
+
+        </div>
+        <%} else {
+
+        %>
+
+        <h2 class="text-center">No Cars</h2>
+
+        <%            }
+
+        %>
+
+
+
+        <%@include file="footer.jsp" %>
     </body>
 </html>

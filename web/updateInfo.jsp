@@ -2,7 +2,7 @@
 
 <%@ page import ="javax.sql.*" %>
 <%
-
+    //getting all the paremeters from the form
     String fname = request.getParameter("fName");
     String lname = request.getParameter("lName");
     String cc = request.getParameter("CC");
@@ -41,7 +41,7 @@
             "UPDATE `CarRental`.`Customer` SET `FirstName`= ? , `LastName`=?, `CrediCardNo`=?, `BillingZipCode`=?, `BillingCity`=?, `Billing State`=?, `BillingStreet`=?, `EmailAdress`=?, `PhoneNo`=?, `Age`=?, `UserName`=?, `Password`=?  WHERE `UserName`='" + id + "'");
     
     
-    
+    // values for the sql code 
     
     
     
@@ -61,6 +61,7 @@
     pst.setString(12, pass);
 
     int i = pst.executeUpdate();
+    //run the code and redirect
     pst.clearParameters();
     if (i > 0) {
         response.sendRedirect("index.jsp");

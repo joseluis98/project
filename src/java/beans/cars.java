@@ -18,8 +18,10 @@ public class cars {
     private String Airport;
     private String Pick;
     private String Drop;
+    private int TotalDays;
+    private double price;
 
-    public cars(int id, String Make, String Model, String Style, String Company, String Airport, String Pick, String Drop) {
+    public cars(int id, String Make, String Model, String Style, String Company, String Airport, String Pick, String Drop,int TotalDays, double price) {
         this.id= id;
         this.Make = Make;
         this.Model = Model;
@@ -28,8 +30,29 @@ public class cars {
         this.Airport = Airport;
         this.Pick= Pick;
         this.Drop= Drop;
+        this.TotalDays=TotalDays;
+        this.price=price;
     }
 
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    
+    
+    public int getTotalDays() {
+        return TotalDays;
+    }
+
+    public void setTotalDays(int TotalDays) {
+        this.TotalDays = TotalDays;
+    }
+
+    
     public String getPick() {
         return Pick;
     }
